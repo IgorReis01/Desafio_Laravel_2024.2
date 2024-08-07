@@ -16,6 +16,9 @@ return new class extends Migration
             $table->timestamps();
             $table->double('valor');
             $table->double('divida');
+            $table->unsignedBigInteger('conta_bancaria');
+            $table->unsignedBigInteger('gerente');
+            $table->unsignedBigInteger('gerente_conta_bancaria');
             $table->foreign('conta_bancaria')->references('id')->on('conta_bancaria');
             $table->foreign('gerente')->references('id')->on('conta_bancaria');
             $table->foreign('gerente_conta_bancaria')->references('id')->on('conta_bancaria');

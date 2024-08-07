@@ -21,16 +21,17 @@ return new class extends Migration
             $table->string('telefone');
             $table->date('data_de_nascimento');
             $table->string('cpf')->unique();
-            $table->file('foto_de_perfil');
+            $table->string('foto_de_perfil');
             $table->string('endereco');
             $table->rememberToken();
-            $table->timestamps();
-            $table->foreign('adm')->references('id');
+            $table->foreignId('adm_id')->constrained('adm');
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * 
      */
     public function down(): void
     {

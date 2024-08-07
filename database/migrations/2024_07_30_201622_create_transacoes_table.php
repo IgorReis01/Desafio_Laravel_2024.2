@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->double('valor');
+            $table->unsignedBigInteger('destinatario');
+            $table->unsignedBigInteger('remetente');
+            $table->string('tipo');
             $table->foreign('destinatario')->references('id')->on('conta_bancaria');
             $table->foreign('remetente')->references('id')->on('conta_bancaria');
-            $table->string('tipo');
         });
     }
 

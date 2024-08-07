@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('gerentes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('conta_bancaria_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('conta_bancaria_id')->constrained('conta_bancaria');
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('telefone');
             $table->date('data_de_nascimento');
             $table->string('cpf')->unique();
-            $table->file('foto_de_perfil');
+            $table->string('foto_de_perfil');
             $table->string('endereco');
         });
     }
@@ -33,5 +33,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('gerentes');
+    
     }
 };

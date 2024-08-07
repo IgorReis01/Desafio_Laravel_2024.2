@@ -16,8 +16,10 @@ return new class extends Migration
             $table->timestamps();
             $table->string('titulo');
             $table->double('limite');
+            $table->unsignedBigInteger('gerentes');
+            $table->unsignedBigInteger('transferencia_bancaria');
             $table->foreign('gerentes')->references('id')->on('gerentes');
-            $table->foreign('transferencia_bancaria')->references('id')->on('transferencia_bancaria');
+            $table->foreign('transferencia_bancaria')->references('id')->on('transacoes');
         });
     }
 

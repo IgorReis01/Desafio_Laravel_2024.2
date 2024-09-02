@@ -17,11 +17,9 @@ return new class extends Migration
             $table->double('valor');
             $table->double('divida');
             $table->unsignedBigInteger('conta_bancaria');
-            $table->unsignedBigInteger('gerente');
-            $table->unsignedBigInteger('gerente_conta_bancaria');
-            $table->foreign('conta_bancaria')->references('id')->on('conta_bancaria');
-            $table->foreign('gerente')->references('id')->on('conta_bancaria');
-            $table->foreign('gerente_conta_bancaria')->references('id')->on('conta_bancaria');
+            $table->unsignedBigInteger('gerente_id');
+            $table->foreign('conta_bancaria')->references('id')->on('conta_bancarias');
+            $table->foreign('gerente_id')->references('id')->on('gerentes');
             $table->boolean('aprovado');
         });
     }

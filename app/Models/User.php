@@ -20,6 +20,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'endereco',
+        'telefone',
+        'cpf',
+        'foto_de_perfil',
+        'gerente_id',
+        'conta_bancaria_id',
+
     ];
 
     /**

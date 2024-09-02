@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('adm', function (Blueprint $table) {
+        Schema::create('adms', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('name');
@@ -24,7 +24,8 @@ return new class extends Migration
             $table->string('foto_de_perfil');
             $table->string('endereco');
             $table->rememberToken();
-            $table->foreignId('adm_id')->constrained('adm');
+            $table->foreignId('adm_id')->constrained('adms');
+            $table->foreignId('adress_id')->constrained('enderecos');
         });
     }
 

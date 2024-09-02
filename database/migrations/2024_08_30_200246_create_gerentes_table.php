@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('gerentes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('conta_bancaria_id')->constrained('conta_bancaria');
+            $table->foreignId('conta_bancaria_id')->constrained('conta_bancarias');
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('cpf')->unique();
             $table->string('foto_de_perfil');
             $table->string('endereco');
+            $table->foreignId('adm_id')->constrained('adms');
         });
     }
 

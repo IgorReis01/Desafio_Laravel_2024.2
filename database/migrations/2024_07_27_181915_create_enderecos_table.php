@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('conta_bancarias', function (Blueprint $table) {
+        Schema::create('enderecos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('agencia');
-            $table->string('conta');
-            $table->double('saldo');
-            $table->double('limite_de_transferencia');
-            $table->string('password');
+            $table->string('country');
+            $table->string('state');
+            $table->string('city');
+            $table->string('street');
+            $table->string('building_number');
+            $table->string('postcode');
         });
     }
 
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('conta_bancaria');
+        Schema::dropIfExists('enderecos');
     }
 };

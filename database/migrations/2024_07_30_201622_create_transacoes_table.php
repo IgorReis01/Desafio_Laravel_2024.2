@@ -18,8 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('destinatario');
             $table->unsignedBigInteger('remetente');
             $table->string('tipo');
-            $table->foreign('destinatario')->references('id')->on('conta_bancaria');
-            $table->foreign('remetente')->references('id')->on('conta_bancaria');
+            $table->foreign('destinatario')->references('id')->on('conta_bancarias');
+            $table->foreign('remetente')->references('id')->on('conta_bancarias');
         });
     }
 

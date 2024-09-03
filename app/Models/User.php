@@ -26,6 +26,7 @@ class User extends Authenticatable
         'foto_de_perfil',
         'gerente_id',
         'conta_bancaria_id',
+        'data_de_nascimento',
 
     ];
 

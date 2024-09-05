@@ -27,9 +27,11 @@
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
+        
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                 <div>
+                    
                     <p class="text-sm mt-2 text-gray-800">
                         {{ __('Your email address is unverified.') }}
 
@@ -46,6 +48,32 @@
                 </div>
             @endif
         </div>
+        <div>
+            <x-input-label for="name" :value="__('Endereço')" />
+            <x-text-input id="endereco" name="endereco" type="text" class="mt-1 block w-full" :value="old('endereco', $user->endereco)" required autofocus autocomplete="endereco" />
+            <x-input-error class="mt-2" :messages="$errors->get('endereco')" />
+        </div>
+        <div>
+            <x-input-label for="telefone" :value="__('Telefone')" />
+            <x-text-input id="telefone" name="telefone" type="text" class="mt-1 block w-full" :value="old('telefone', $user->telefone)" required autofocus autocomplete="telefone" />
+            <x-input-error class="mt-2" :messages="$errors->get('telefone')" />
+        </div>
+        <div>
+            <x-input-label for="data_de_nascimento" :value="__('Data de Nascimento')" />
+            <x-text-input id="data_de_nascimento" name="data_de_nascimento" type="text" class="mt-1 block w-full" :value="old('data_de_nascimento', $user->data_de_nascimento)" required autofocus autocomplete="data_de_nascimento" />
+            <x-input-error class="mt-2" :messages="$errors->get('data_de_nascimento')" />
+        </div>
+        <div>
+            <x-input-label for="cpf" :value="__('Cpf')" />
+            <x-text-input id="cpf" name="cpf" type="text" class="mt-1 block w-full" :value="old('cpf', $user->cpf)" required autofocus autocomplete="cpf" />
+            <x-input-error class="mt-2" :messages="$errors->get('cpf')" />
+        </div>
+        <div>
+            <x-input-label for="Foto_de_perfil" :value="__('Foto de Perfil')" />
+            <x-text-input id="foto_de_perfil" name="foto_de_perfil" type="file" class="mt-1 block w-full" :value="old('foto_de_perfil', $user->foto_de_perfil)" required autofocus autocomplete="foto_de_perfil" />
+            <x-input-error class="mt-2" :messages="$errors->get('name')" />
+        </div>
+     
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>

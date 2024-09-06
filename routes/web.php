@@ -20,7 +20,7 @@ echo "dashboard do adm";
 Route::middleware('gerente')->group (function() {
     Route::get('/dashboardGerente', function(){
 echo "dashboard do gerente";
-    })->name('gerente.dashboard');
+    })->name('gerentes.dashboard');
 });
 
 Route::middleware('auth')->group(function () {

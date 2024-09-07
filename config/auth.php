@@ -43,12 +43,12 @@ return [
 
         'admin' => [
             'driver' => 'session',
-            'provider' => 'adm',
+            'provider' => 'admins',
 
         ],
         'gerente' => [
             'driver' => 'session',
-            'provider' => 'gerente',
+            'provider' => 'gerentes',
             
         ],
 
@@ -82,13 +82,13 @@ return [
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
 
-        'adm' => [
+        'admins' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\Adm::class),
         ],
-        'gerente' => [
+        'gerentes' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', App\Models\Gerente::class),
+            'model' =>App\Models\Gerente::class,
         ],
 
 

@@ -8,9 +8,13 @@ Route::get('/login', function () {
     return view('auth.login');
 });
 
-Route::get('/dashboard', function () {
+
+    Route::get('/dashboard', function(){
+//dd(Auth::user());
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    })->name('dashboard');
+
+
 Route::middleware('admin')->group (function() {
     Route::get('/dashboardAdmin', function(){
 echo "dashboard do adm";
@@ -23,11 +27,16 @@ echo "dashboard do gerente";
     })->name('gerentes.dashboard');
 });
 
-Route::middleware('auth')->group(function () {
+
     Route::resource("/user", UserController::class);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+
+
 
 require __DIR__.'/auth.php';
+
+//Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

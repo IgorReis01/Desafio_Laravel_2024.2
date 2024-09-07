@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->foreignId('gerente_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('conta_bancaria_id')->constrained('conta_bancarias')->cascadeOnDelete();
+            $table->foreignId('conta_bancaria_id')->nullable()->constrained('conta_bancarias')->cascadeOnDelete();
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

@@ -24,36 +24,48 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        // $request->authenticate();
+        
+        $request->authenticate();
 
-        // $request->session()->regenerate();
+        $request->session()->regenerate();
 
-        // return redirect()->intended(route('dashboard', absolute: false));
+        
 
-        $credenciais = $request->only('email','password');
+        $credentials = $request->only('email','password');
 
-        if(Auth::attempt($credenciais)){
+        //dd($credentials);
+
+        if(Auth::attempt($credentials)){
             return redirect()->route('dashboard');
-        } else if(Auth::guard('admin')->attempt($credenciais)){
-            return redirect()->route('admin.dashboard'); 
-        } else if(Auth::guard('gerente')->attempt($credenciais)){
-            return redirect()->route('gerentes.dashboard');
+        } else if(Auth::guard('admin')->attempt($credentials)){
+            return redirect()->route('admin.dashboard');
         }
+        else if(Auth::guard('gerente')->attempt($credentials)){
+            return redirect()->route('gerente.dashboard');
+        }
+
     }
 
     /**
      * Destroy an authenticated session.
      */
-    public function destroy(): RedirectResponse
+    public function destroy(Request $request): RedirectResponse
     {
+        // Auth::guard('web')->logout();
+        // Auth::guard('admin')->logout();
+        // Auth::guard('gerente')->logout();
+
+        // $request->session()->invalidate();
+
+        // $request->session()->regenerateToken();
+
+        // return redirect('/');
         Auth::guard('web')->logout();
-        Auth::guard('admin')->logout();
-        Auth::guard('gerente')->logout();
 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/login');
     }
 }

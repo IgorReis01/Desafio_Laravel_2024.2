@@ -13,8 +13,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->group('admin', [AdmAuthenticator::class]);
-        $middleware->group('gerente', [GerenteAuthenticator::class]);
+        $middleware->alias([
+            'admin' =>  AdmAuthenticator::class,
+            'gerente' =>   Gerente::class,
+            ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

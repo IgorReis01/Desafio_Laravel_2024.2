@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TransferenciaController;
 
 Route::get('/login', function () {
     return view('auth.login');
@@ -32,6 +33,8 @@ echo "dashboard do gerente";
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/transferencia-bancaria', [TransferenciaController::class, 'show'])->name('transferencia.show');
+    Route::post('/cria-transferencia', [TransferenciaController::class, 'create'])->name('transferencia.create');
 
 
 
